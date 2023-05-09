@@ -25,6 +25,7 @@ function onCreatePromises(e) {
   }
 
   let { amount, step, delay } = dataParams;
+  delay = 500;
 
   for (let i = 1; i <= amount; i += 1) {
     delay += step;

@@ -59,12 +59,11 @@ function addLeadingZero(value) {
 
 function onTimerStart() {
   const selectedDate = timePicker.selectedDates[0];
-
+  btnStart.disabled = true;
+  timePicker.input.disabled = true;
   timerId = setInterval(() => {
     const startTime = new Date();
     const countdown = selectedDate - startTime;
-    btnStart.disabled = true;
-
     if (countdown < 0) {
       clearInterval(timerId);
       return;
@@ -82,4 +81,3 @@ function updateTimer({ days, hours, minutes, seconds }) {
 const timePicker = flatpickr('#datetime-picker', options);
 
 btnStart.addEventListener('click', onTimerStart);
-
