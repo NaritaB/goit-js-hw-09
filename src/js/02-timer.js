@@ -4,6 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const btnStart = document.querySelector('button[data-start]');
 btnStart.disabled = true;
+
 let timerId = null;
 
 const refs = {
@@ -24,7 +25,7 @@ const options = {
 
     if (selectedDates[0] - currentDate > 0) {
       btnStart.disabled = false;
-    } else {
+         } else {
       btnStart.disabled = true;
       Notify.failure('Please choose a date in the future', {
         timeout: 1500,
@@ -66,6 +67,7 @@ function onTimerStart() {
     const countdown = selectedDate - startTime;
     if (countdown < 0) {
       clearInterval(timerId);
+      timePicker.input.disabled = false;
       return;
     }
     updateTimer(convertMs(countdown));

@@ -28,9 +28,8 @@ function onCreatePromises(e) {
   delay = 500;
 
   for (let i = 1; i <= amount; i += 1) {
-    delay += step;
     createPromise(i, delay).then(onSuccess).catch(onError);
-
+    delay += step;
     form.reset();
   }
 }
